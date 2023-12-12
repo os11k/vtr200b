@@ -1,0 +1,616 @@
+modbus:
+  - name: VTR200B
+    type: tcp
+    host: 192.168.1.230  # User specific setting
+    port: 8432 # User specific setting
+    timeout: 3 #Timeout for slave response in seconds (default=3)
+    delay: 3 #Time to sleep in seconds after connecting and before sending messages (defualt=0)
+
+    switches:
+      - name: VTR200B_REG_FAN_ALLOW_MANUAL_FAN_STOP
+        slave: 1
+        address: 113
+        write_type: holding
+        command_on: 1
+        command_off: 0
+        verify:
+
+#### EF - Extract air fan, SF - Supply air fan
+    sensors:
+      - name: VTR200B_REG_FAN_SPEED_LEVEL
+        slave: 1
+        address: 100 #0: Off,1: Low,2: Normal,3: High,4: Auto
+        input_type: holding
+        data_type: uint16
+      - name: VTR200B_REG_FAN_SF_FLOW_LOW
+        slave: 1
+        address: 101
+        input_type: holding
+        data_type: uint16
+      - name: VTR200B_REG_FAN_EF_FLOW_LOW
+        slave: 1
+        address: 102
+        input_type: holding
+        data_type: uint16
+      - name: VTR200B_REG_FAN_SF_FLOW_NOM
+        slave: 1
+        address: 103
+        input_type: holding
+        data_type: uint16
+      - name: VTR200B_REG_FAN_EF_FLOW_NOM
+        slave: 1
+        address: 104
+        input_type: holding
+        data_type: uint16
+      - name: VTR200B_REG_FAN_SF_FLOW_HIGH
+        slave: 1
+        address: 105
+        input_type: holding
+        data_type: uint16
+      - name: VTR200B_REG_FAN_EF_FLOW_HIGH
+        slave: 1
+        address: 106
+        input_type: holding
+        data_type: uint16
+      - name: VTR200B_REG_FAN_FLOW_UNITS
+        slave: 1
+        address: 107 #0: l/s,1: m3/h
+        input_type: holding
+        data_type: uint16
+      - name: VTR200B_REG_FAN_SF_PWM
+        slave: 1
+        address: 108
+        input_type: holding
+        data_type: uint16
+      - name: VTR200B_REG_FAN_EF_PWM
+        slave: 1
+        address: 109
+        input_type: holding
+        data_type: uint16
+      - name: VTR200B_REG_FAN_SF_RPM
+        slave: 1
+        address: 110
+        input_type: holding
+        data_type: uint16
+      - name: VTR200B_REG_FAN_EF_RPM
+        slave: 1
+        address: 111
+        input_type: holding
+        data_type: uint16
+      - name: VTR200B_REG_FAN_ALLOW_MANUAL_FAN_STOP
+        slave: 1
+        address: 113
+        input_type: holding
+        data_type: uint16
+      - name: VTR200B_REG_FAN_SYSTEM_CURVE_SF
+        slave: 1
+        address: 135
+        input_type: holding
+        data_type: uint16
+      - name: VTR200B_REG_FAN_SYSTEM_CURVE_EF
+        slave: 1
+        address: 136
+        input_type: holding
+        data_type: uint16
+      - name: VTR200B_REG_FAN_CONTROL_TYPE
+        slave: 1
+        address: 137 #0: Air flow,1: Sped
+        input_type: holding
+        data_type: uint16
+      - name: VTR200B_REG_FAN_INTERLOCK
+        slave: 1
+        address: 138 #0: Relay off,1: Relay active
+        input_type: holding
+        data_type: uint16
+########################################
+      - name: VTR200B_REG_HC_HEATER_TYPE
+        slave: 1
+        address: 200
+        input_type: holding
+        data_type: uint16
+      - name: VTR200B_REG_HC_COOLER_TYPE
+        slave: 1
+        address: 201
+        input_type: holding
+        data_type: uint16
+      - name: VTR200B_REG_HC_WC_SIGNAL
+        slave: 1
+        address: 203
+        input_type: holding
+        data_type: uint16
+      - name: VTR200B_REG_HC_WH_SIGNAL
+        slave: 1
+        address: 204
+        input_type: holding
+        data_type: uint16
+      - name: VTR200B_REG_HC_FPS_LEVEL
+        slave: 1
+        address: 205 # Frost protection level. Allowed values: 70, 80, 90, 100, 110, 120 = 7, 8, 9, 10, 11, 12 C
+        input_type: holding
+        data_type: uint16
+      - name: VTR200B_REG_HC_TEMP_LVL
+        slave: 1
+        address: 206
+        input_type: holding
+        data_type: uint16
+      - name: VTR200B_REG_HC_TEMP_SP
+        slave: 1
+        address: 207
+        input_type: holding
+        unit_of_measurement: °C
+        scale: 0.1
+        offset: 0
+        precision: 1
+        data_type: int16
+      - name: VTR200B_REG_HC_TEMP_IN1
+        slave: 1
+        address: 213
+        input_type: holding
+        unit_of_measurement:       C
+        scale: 0.1
+        offset: 0
+        precision: 1
+        data_type: int16
+      - name: VTR200B_REG_HC_TEMP_IN2
+        slave: 1
+        address: 214
+        input_type: holding
+        unit_of_measurement:       C
+        scale: 0.1
+        offset: 0
+        precision: 1
+        data_type: int16
+      - name: VTR200B_REG_HC_TEMP_IN3
+        slave: 1
+        address: 215
+        input_type: holding
+        unit_of_measurement:       C
+        scale: 0.1
+        offset: 0
+        precision: 1
+        data_type: int16
+      - name: VTR200B_REG_HC_TEMP_IN4
+        slave: 1
+        address: 216
+        input_type: holding
+        unit_of_measurement:       C
+        scale: 0.1
+        offset: 0
+        precision: 1
+        data_type: int16
+      - name: VTR200B_REG_HC_TEMP_IN5
+        slave: 1
+        address: 217
+        input_type: holding
+        unit_of_measurement:       C
+        scale: 0.1
+        offset: 0
+        precision: 1
+        data_type: int16
+      - name: VTR200B_REG_HC_TEMP_STATE
+        slave: 1
+        address: 218
+        input_type: holding
+        data_type: uint16
+      - name: VTR200B_REG_HC_PREHEATER_TYPE
+        slave: 1
+        address: 219
+        input_type: holding
+        data_type: uint16
+      - name: VTR200B_REG_HC_HEATER_TEMP_SP_HOME_LEAVE
+        slave: 1
+        address: 220
+        input_type: holding
+        data_type: uint16
+      - name: VTR200B_REG_HC_TEMP_SP_DEG
+        slave: 1
+        address: 221
+        input_type: holding
+        unit_of_measurement:       C
+        scale: 0.1
+        offset: 0
+        precision: 1
+        data_type: int16
+########################################
+      - name: VTR200B_REG_DAMPER_PWM
+        slave: 1
+        address: 300
+        input_type: holding
+        data_type: uint16
+########################################
+      - name: VTR200B_REG_ROTOR_STATE
+        slave: 1
+        address: 350
+        input_type: holding
+        data_type: uint16
+      - name: VTR200B_REG_ROTOR_RELAY_ACTIVE
+        slave: 1
+        address: 351
+        input_type: holding
+        data_type: uint16
+      - name: VTR200B_REG_SYSTEM_ROTOR_TYPE
+        slave: 1
+        address: 352
+        input_type: holding
+        data_type: uint16
+      - name: VTR200B_REG_SYSTEM_PASSIVE_HOUSE
+        slave: 1
+        address: 353
+        input_type: holding
+        data_type: uint16
+########################################
+      - name: VTR200B_REG_RH_SENSOR_VALUE
+        device_class: humidity
+        slave: 1
+        address: 380
+        input_type: holding
+        unit_of_measurement: "%"
+        data_type: uint16
+      - name: VTR200B_REG_RH_SENSOR_DATA_VALID
+        slave: 1
+        address: 382
+        input_type: holding
+        data_type: uint16
+########################################
+      - name: VTR200B_REG_SYSTEM_TYPE
+        slave: 1
+        address: 500
+        input_type: holding
+        data_type: uint16
+      - name: VTR200B_REG_SYSTEM_PROG_V_HIGH
+        slave: 1
+        address: 501
+        input_type: holding
+        data_type: uint16
+      - name: VTR200B_REG_SYSTEM_PROG_V_MID
+        slave: 1
+        address: 502
+        input_type: holding
+        data_type: uint16
+      - name: VTR200B_REG_SYSTEM_PROG_V_LOW
+        slave: 1
+        address: 503
+        input_type: holding
+        data_type: uint16
+      - name: VTR200B_REG_SYSTEM_BOOT_PROG_V_HIGH
+        slave: 1
+        address: 504
+        input_type: holding
+        data_type: uint16
+      - name: VTR200B_REG_SYSTEM_ BOOT_PROG_V_MID
+        slave: 1
+        address: 505
+        input_type: holding
+        data_type: uint16
+      - name: VTR200B_REG_SYSTEM_ BOOT_PROG_V_LOW
+        slave: 1
+        address: 506
+        input_type: holding
+        data_type: uint16
+      - name: VTR200B_REG_SYSTEM_PROG_STATE
+        slave: 1
+        address: 507
+        input_type: holding
+        data_type: uint16
+      - name: VTR200B_REG_SYSTEM_CDX_PROG_V_H
+        slave: 1
+        address: 523
+        input_type: holding
+        data_type: uint16
+      - name: VTR200B_REG_SYSTEM_CDX_PROG_V_M
+        slave: 1
+        address: 524
+        input_type: holding
+        data_type: uint16
+      - name: VTR200B_REG_SYSTEM_CDX_PROG_V_L
+        slave: 1
+        address: 525
+        input_type: holding
+        data_type: uint16
+########################################
+      - name: VTR200B_REG_FILTER_PER
+        slave: 1
+        address: 600
+        input_type: holding
+        unit_of_measurement: "md"
+        data_type: int16
+      - name: VTR200B_REG_FILTER_DAYS
+        slave: 1
+        address: 601
+        input_type: holding
+        unit_of_measurement: d
+        data_type: int16
+########################################
+      - name: VTR200B_REG_DEFR_STATE_VR
+        slave: 1
+        address: 670
+        input_type: holding
+        data_type: uint16
+      - name: VTR200B_REG_DEFR_MODE_VR
+        slave: 1
+        address: 671
+        input_type: holding
+        data_type: uint16
+########################################
+      - name: VTR200B_REG_DEMC_ALLOWED
+        slave: 1
+        address: 861
+        input_type: holding
+        data_type: uint16
+      - name: VTR200B_REG_DEMC_SUMMER_WINTER_MODE
+        slave: 1
+        address: 863
+        input_type: holding
+        data_type: uint16
+########################################
+      - name: VTR200B_REG_ALARMS_ALL
+        slave: 1
+        address: 800
+        input_type: holding
+        data_type: uint16
+      - name: VTR200B_REG_ALARMS_RELAY_ACTIVE
+        slave: 1
+        address: 801
+        input_type: holding
+        data_type: uint16
+      - name: VTR200B_REG_ALARMS_ALL_DETAILED
+        address: 802
+        scan_interval: 5
+        data_type: custom
+        input_type: holding
+        count: 1
+        structure: ">H"
+        slave: 1
+        state_class: measurement
+template:
+ - sensor:    
+    - name: "VTR200B_REG_ALARMS_ALL_DETAILED_MAP"
+      state: "{{ states('sensor.VTR200B_REG_ALARMS_ALL_DETAILED') }}"
+      attributes:
+        Filter_alarm_status: "{% if states('sensor.VTR200B_REG_ALARMS_ALL_DETAILED') | int | bitwise_and(1) %}on{% else %}off{% endif %}"
+        Fan_alarm_status: "{% if states('sensor.VTR200B_REG_ALARMS_ALL_DETAILED') | int | bitwise_and(2) %}on{% else %}off{% endif %}"
+        Rotor_alarm_status: "{% if states('sensor.VTR200B_REG_ALARMS_ALL_DETAILED') | int | bitwise_and(4) %}on{% else %}off{% endif %}"
+        Frost_alarm_status: "{% if states('sensor.VTR200B_REG_ALARMS_ALL_DETAILED') | int | bitwise_and(8) %}on{% else %}off{% endif %}"
+        PCU-PB_alarm_status: "{% if states('sensor.VTR200B_REG_ALARMS_ALL_DETAILED') | int | bitwise_and(16) %}on{% else %}off{% endif %}"
+        Emergency_thermostat_alarm_status: "{% if states('sensor.VTR200B_REG_ALARMS_ALL_DETAILED') | int | bitwise_and(32) %}on{% else %}off{% endif %}"
+        Damper_alarm_status: "{% if states('sensor.VTR200B_REG_ALARMS_ALL_DETAILED') | int | bitwise_and(64) %}on{% else %}off{% endif %}"
+        Low_SS_alarm_status: "{% if states('sensor.VTR200B_REG_ALARMS_ALL_DETAILED') | int | bitwise_and(128) %}on{% else %}off{% endif %}"
+        Defrost_alarm_status: "{% if states('sensor.VTR200B_REG_ALARMS_ALL_DETAILED') | int | bitwise_and(256) %}on{% else %}off{% endif %}"
+        RH_sensor_alarm_status: "{% if states('sensor.VTR200B_REG_ALARMS_ALL_DETAILED') | int | bitwise_and(512) %}on{% else %}off{% endif %}"
+        Supply_air_sensor_alarm_status: "{% if states('sensor.VTR200B_REG_ALARMS_ALL_DETAILED') | int | bitwise_and(1024) %}on{% else %}off{% endif %}"
+        Extract_air_sensor_alarm_status: "{% if states('sensor.VTR200B_REG_ALARMS_ALL_DETAILED') | int | bitwise_and(2048) %}on{% else %}off{% endif %}"
+        Exhaust_air_Preheater_sensor_alarm_status: "{% if states('sensor.VTR200B_REG_ALARMS_ALL_DETAILED') | int | bitwise_and(4096) %}on{% else %}off{% endif %}"
+        Over_temperature_Frost_protection_sensor_alarm_status: "{% if states('sensor.VTR200B_REG_ALARMS_ALL_DETAILED') | int | bitwise_and(8192) %}on{% else %}off{% endif %}"
+        Outdoor_air_sensor_alarm_status: "{% if states('sensor.VTR200B_REG_ALARMS_ALL_DETAILED') | int | bitwise_and(16384) %}on{% else %}off{% endif %}"
+        
+ - binary_sensor:
+    - name: VTR200B_Filter_alarm
+      state: "{% if states('sensor.VTR200B_REG_ALARMS_ALL_DETAILED') | int | bitwise_and(1) %}on{% else %}off{% endif %}"
+      unique_id: VTR200B_REG_ALARMS_ALL_DETAILED_0
+ - binary_sensor:
+    - name: VTR200B_Fan_alarm
+      state: "{% if states('sensor.VTR200B_REG_ALARMS_ALL_DETAILED') | int | bitwise_and(2) %}on{% else %}off{% endif %}"
+      unique_id: VTR200B_REG_ALARMS_ALL_DETAILED_1
+ - binary_sensor:
+    - name: VTR200B_Rotor_alarm
+      state: "{% if states('sensor.VTR200B_REG_ALARMS_ALL_DETAILED') | int | bitwise_and(4) %}on{% else %}off{% endif %}"
+      unique_id: VTR200B_REG_ALARMS_ALL_DETAILED_2
+ - binary_sensor:
+    - name: VTR200B_Frost_alarm
+      state: "{% if states('sensor.VTR200B_REG_ALARMS_ALL_DETAILED') | int | bitwise_and(8) %}on{% else %}off{% endif %}"
+      unique_id: VTR200B_REG_ALARMS_ALL_DETAILED_3
+ - binary_sensor:
+    - name: VTR200B_PCU-PB_alarm
+      state: "{% if states('sensor.VTR200B_REG_ALARMS_ALL_DETAILED') | int | bitwise_and(16) %}on{% else %}off{% endif %}"
+      unique_id: VTR200B_REG_ALARMS_ALL_DETAILED_4
+ - binary_sensor:
+    - name: VTR200B_Emergency_thermostat_alarm
+      state: "{% if states('sensor.VTR200B_REG_ALARMS_ALL_DETAILED') | int | bitwise_and(32) %}on{% else %}off{% endif %}"
+      unique_id: VTR200B_REG_ALARMS_ALL_DETAILED_5
+ - binary_sensor:
+    - name: VTR200B_Damper_alarm
+      state: "{% if states('sensor.VTR200B_REG_ALARMS_ALL_DETAILED') | int | bitwise_and(64) %}on{% else %}off{% endif %}"
+      unique_id: VTR200B_REG_ALARMS_ALL_DETAILED_6
+ - binary_sensor:
+    - name: VTR200B_Low_SS_alarm
+      state: "{% if states('sensor.VTR200B_REG_ALARMS_ALL_DETAILED') | int | bitwise_and(128) %}on{% else %}off{% endif %}"
+      unique_id: VTR200B_REG_ALARMS_ALL_DETAILED_7
+ - binary_sensor:
+    - name: VTR200B_Defrost_alarm
+      state: "{% if states('sensor.VTR200B_REG_ALARMS_ALL_DETAILED') | int | bitwise_and(256) %}on{% else %}off{% endif %}"
+      unique_id: VTR200B_REG_ALARMS_ALL_DETAILED_8
+ - binary_sensor:
+    - name: VTR200B_RH_sensor_alarm
+      state: "{% if states('sensor.VTR200B_REG_ALARMS_ALL_DETAILED') | int | bitwise_and(512) %}on{% else %}off{% endif %}"
+      unique_id: VTR200B_REG_ALARMS_ALL_DETAILED_9
+ - binary_sensor:
+    - name: VTR200B_Supply_air_sensor_alarm
+      state: "{% if states('sensor.VTR200B_REG_ALARMS_ALL_DETAILED') | int | bitwise_and(1024) %}on{% else %}off{% endif %}"
+      unique_id: VTR200B_REG_ALARMS_ALL_DETAILED_10
+ - binary_sensor:
+    - name: VTR200B_Extract_air_sensor_alarm
+      state: "{% if states('sensor.VTR200B_REG_ALARMS_ALL_DETAILED') | int | bitwise_and(2048) %}on{% else %}off{% endif %}"
+      unique_id: VTR200B_REG_ALARMS_ALL_DETAILED_11
+ - binary_sensor:
+    - name: VTR200B_Exhaust_air_Preheater_sensor_alarm
+      state: "{% if states('sensor.VTR200B_REG_ALARMS_ALL_DETAILED') | int | bitwise_and(4096) %}on{% else %}off{% endif %}"
+      unique_id: VTR200B_REG_ALARMS_ALL_DETAILED_12
+ - binary_sensor:
+    - name: VTR200B_Over_temperature_Frost_protection_sensor_alarm
+      state: "{% if states('sensor.VTR200B_REG_ALARMS_ALL_DETAILED') | int | bitwise_and(8192) %}on{% else %}off{% endif %}"
+      unique_id: VTR200B_REG_ALARMS_ALL_DETAILED_13
+ - binary_sensor:
+    - name: VTR200B_Outdoor_air_sensor_alarm
+      state: "{% if states('sensor.VTR200B_REG_ALARMS_ALL_DETAILED') | int | bitwise_and(16384) %}on{% else %}off{% endif %}"
+      unique_id: VTR200B_REG_ALARMS_ALL_DETAILED_14
+
+
+
+################################################################################
+# INPUT BOOLEAN
+################################################################################
+
+input_boolean:
+  vtr200b_stop_mode_status_dummy:
+    name: VTR200B stop mode status dummy
+    icon: mdi:fan
+  vtr200b_low_mode_status_dummy:
+    name: VTR200B Low mode status dummy
+    icon: mdi:fan
+  vtr200b_normal_mode_status_dummy:
+    name: VTR200B Normal mode status dummy
+    icon: mdi:fan
+  vtr200b_high_mode_status_dummy:
+    name: VTR200B high mode status dummy
+    icon: mdi:fan
+  vtr200b_auto_mode_status_dummy:
+    name: VTR200B mode status dummy
+    icon: mdi:fan
+
+
+################################################################################
+# SENSORS
+################################################################################
+
+sensor:
+  - platform: template
+    sensors:
+
+
+      vtr200b_mode_status:
+        friendly_name: "Mode"
+        value_template: >-
+          {% if states('sensor.vtr200b_REG_FAN_SPEED_LEVEL')|int == 0 %}
+            Off
+          {% elif states('sensor.vtr200b_REG_FAN_SPEED_LEVEL')|int == 1  %}
+            Low
+          {% elif states('sensor.vtr200b_REG_FAN_SPEED_LEVEL')|int == 2  %}
+            Normal
+          {% elif states('sensor.vtr200b_REG_FAN_SPEED_LEVEL')|int == 3  %}
+            High
+          {% elif states('sensor.vtr200b_REG_FAN_SPEED_LEVEL')|int == 4 %}
+            Auto         
+          {% else %}
+            WTF
+          {% endif %}
+################################################################################
+# Switches
+################################################################################
+
+switch:
+  - platform: template
+    switches:
+      vtr200b_low_mode:
+        friendly_name: Low speed
+        value_template: "{{ is_state('sensor.vtr200b_mode_status', 'Low') }}"
+        turn_on:
+          - service: script.vtr200b_low_mode
+            data:
+              action: "on"
+        turn_off:
+          service: script.vtr200b_low_dummy_off
+          data:
+            action: "off"
+      vtr200b_normal_mode:
+        friendly_name: Normal speed
+        value_template: "{{ is_state('sensor.vtr200b_mode_status', 'Normal') }}"
+        turn_on:
+          - service: script.vtr200b_normal_mode
+            data:
+              action: "on"
+        turn_off:
+          service: script.vtr200b_normal_dummy_off
+          data:
+            action: "off"
+      vtr200b_high_mode:
+        friendly_name: High speed
+        value_template: "{{ is_state('sensor.vtr200b_mode_status', 'High') }}"
+        turn_on:
+          - service: script.vtr200b_high_mode
+            data:
+              action: "on"
+        turn_off:
+          service: script.vtr200b_high_dummy_off
+          data:
+            action: "off"
+
+
+################################################################################
+# Script
+################################################################################
+script:
+  vtr200b_low_mode:
+    sequence:
+      - service: input_boolean.turn_on
+        entity_id: input_boolean.vtr200b_low_mode_status_dummy
+      - service: modbus.write_register
+        data_template:
+          hub: VTR200B
+          unit: 1
+          address: 100
+          value: 1
+      - service: switch.turn_off
+        entity_id: switch.vtr200b_normal_mode
+      - service: switch.turn_off
+        entity_id: switch.vtr200b_high_mode
+      - delay: "00:00:02"
+      - service: modbus.write_register
+        data_template:
+          hub: VTR200B
+          unit: 1
+          address: 548
+          value: 165
+  vtr200b_low_dummy_off:
+    sequence:
+      service: input_boolean.turn_off
+      entity_id: input_boolean.vtr200b_low_mode_status_dummy
+  vtr200b_normal_mode:
+    sequence:
+      - service: input_boolean.turn_on
+        entity_id: input_boolean.vtr200b_normal_mode_status_dummy
+      - service: modbus.write_register
+        data_template:
+          hub: VTR200B
+          unit: 1
+          address: 100
+          value: 2
+      - service: switch.turn_off
+        entity_id: switch.vtr200b_low_mode
+      - service: switch.turn_off
+        entity_id: switch.vtr200b_high_mode
+      - delay: "00:00:02"
+      - service: modbus.write_register
+        data_template:
+          hub: VTR200B
+          unit: 1
+          address: 548
+          value: 165
+  vtr200b_normal_dummy_off:
+    sequence:
+      service: input_boolean.turn_off
+      entity_id: input_boolean.vtr200b_normal_mode_status_dummy
+  vtr200b_high_mode:
+    sequence:
+      - service: input_boolean.turn_on
+        entity_id: input_boolean.vtr200b_high_mode_status_dummy
+      - service: modbus.write_register
+        data_template:
+          hub: VTR200B
+          unit: 1
+          address: 100
+          value: 3
+      - service: switch.turn_off
+        entity_id: switch.vtr200b_low_mode
+      - service: switch.turn_off
+        entity_id: switch.vtr200b_normal_mode
+      - delay: "00:00:02"
+      - service: modbus.write_register
+        data_template:
+          hub: VTR200B
+          unit: 1
+          address: 548
+          value: 165
+  vtr200b_high_dummy_off:
+    sequence:
+      service: input_boolean.turn_off
+      entity_id: input_boolean.vtr200b_high_mode_status_dummy
