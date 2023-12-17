@@ -3,7 +3,7 @@ Simple control of Systemair vtr200b via modbus TCP (Wifi) directly to HA.
 
 This particular project is for Systemair units with old displays featuring a wheel, as shown in this photo:
 
-![img](https://imgur.com/BJba6Vp)
+![img](https://i.imgur.com/BJba6Vp.png)
 
 Credits to Ztaeyn I used his project as a template for this one, even for this README, lol.
 * https://github.com/Ztaeyn/HomeAssistant-VTR-Modbus
@@ -20,7 +20,7 @@ NOTE: The addresses have an offset of -1 compared to the VTR user manual above.
 
 My Control Panel is very simple, and the code is in this repository under the `user_interface` folder.
 
-![img](https://imgur.com/32qOCJ4)
+![img](https://i.imgur.com/32qOCJ4.png)
 
 Hardware required (for my setup):
 A Modbus TCP converter. I use the Waveshare RS485 PoE.
@@ -44,12 +44,12 @@ I found this video very useful for configuring RS485 PoE; it was not so straight
 
 Wiring:
 
-![img](https://imgur.com/znc8YoE4)
+![img](https://i.imgur.com/znc8YoE4.png)
 
 My settings that work for my vtr200b:
 
-![img](https://imgur.com/BJba6Vp)
+![img](https://i.imgur.com/BJba6Vp.png)
 
-![img](https://imgur.com/b6riAiK)
+![img](https://i.imgur.com/b6riAiK.png)
 
-![img](https://imgur.com/LaLzI0J)
+![img](https://i.imgur.com/LaLzI0J.png)
