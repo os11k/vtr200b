@@ -1,0 +1,63 @@
+views:
+  - title: Home
+    cards:
+      - type: entities
+        entities:
+          - entity: switch.vtr200b_low_mode
+            icon: mdi:fan-speed-1
+          - entity: switch.vtr200b_normal_mode
+            icon: mdi:fan-speed-2
+          - entity: switch.vtr200b_high_mode
+            icon: mdi:fan-speed-3
+      - type: entities
+        entities:
+          - entity: binary_sensor.vtr200b_filter_alarm_2
+            name: Filter alarm
+          - entity: binary_sensor.vtr200b_fan_alarm_2
+            name: Fan Alarm
+          - entity: binary_sensor.vtr200b_rotor_alarm_2
+            name: Rotor alarm
+          - entity: binary_sensor.vtr200b_frost_alarm_2
+            name: Frost alarm
+          - entity: binary_sensor.vtr200b_pcu_pb_alarm_2
+            name: Pcu-pb alarm
+          - entity: binary_sensor.vtr200b_emergency_thermostat_alarm_2
+            name: Emergency thermostat alarm
+          - entity: binary_sensor.vtr200b_damper_alarm_2
+            name: Damper alarm
+          - entity: binary_sensor.vtr200b_low_ss_alarm_2
+            name: Low supply air temperature alarm
+          - entity: binary_sensor.vtr200b_supply_air_sensor_alarm_2
+            name: Supply air sensor alarm
+          - entity: binary_sensor.vtr200b_defrost_alarm_2
+            name: Defrost alarm
+          - entity: binary_sensor.vtr200b_rh_sensor_alarm_2
+            name: Humidity sensor alarm
+      - type: entities
+        entities:
+          - input_number.vtr200b_temperature
+      - type: entities
+        entities:
+          - entity: sensor.vtr200b_reg_hc_temp_sp
+            name: Temperature set point
+          - entity: sensor.vtr200b_model_number
+          - entity: sensor.vtr200b_ziema_vasara
+          - entity: sensor.vtr200b_reg_rh_sensor_value
+            name: Humidity
+          - entity: sensor.vtr200b_reg_filter_days
+            name: Days left before filter change
+          - entity: sensor.vtr200b_reg_hc_temp_in5
+            name: Outdoor air sensor
+          - entity: sensor.vtr200b_reg_hc_temp_in1
+            name: Supply air sensor
+          - entity: sensor.vtr200b_reg_hc_temp_in2
+            name: Extract air sensor
+          - entity: sensor.vtr200b_reg_fan_sf_rpm
+            name: Supply fan RPMs
+            secondary_info: none
+          - entity: sensor.vtr200b_reg_fan_ef_rpm
+            name: Extract fan RPMs
+          - entity: sensor.vtr200b_heater_type
+          - entity: sensor.vtr200b_cooler_type
+          - entity: sensor.vtr200b_main_version
+          - entity: sensor.vtr200b_boot_version
