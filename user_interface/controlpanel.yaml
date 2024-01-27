@@ -45,7 +45,7 @@ views:
           - entity: sensor.vtr200b_reg_rh_sensor_value
             name: Humidity
           - entity: sensor.vtr200b_reg_filter_days
-            name: Days left before filter change
+            name: Days after last filter change
           - entity: sensor.vtr200b_reg_hc_temp_in5
             name: Outdoor air sensor
           - entity: sensor.vtr200b_reg_hc_temp_in1

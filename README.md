@@ -20,7 +20,7 @@ NOTE: The addresses have an offset of -1 compared to the VTR user manual above.
 
 My Control Panel is very simple, and the code is in this repository under the `user_interface` folder.
 
-<img src="https://i.imgur.com/32qOCJ4.png" width=40% height=40%>
+<img src="https://i.imgur.com/a/5a73Yx5" width=40% height=40%>
 
 Hardware required (for my setup):
 A Modbus TCP converter. I use the Waveshare RS485 PoE.
