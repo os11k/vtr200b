@@ -44,7 +44,7 @@ I found this video very useful for configuring RS485 PoE; it was not so straight
 
 Wiring:
 
-<img src="https://i.imgur.com/znc8YoE.png" width=40% height=40%>
+<img src="https://i.imgur.com/66Y9BdG.png" width=40% height=40%>
 
 My settings that work for my vtr200b:
 
