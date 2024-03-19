@@ -6,16 +6,6 @@ modbus:
     timeout: 3 #Timeout for slave response in seconds (default=3)
     delay: 3 #Time to sleep in seconds after connecting and before sending messages (defualt=0)
 
-    climates:
-      - name: vtr200b_temp
-        address: 207
-        slave: 1
-        offset: 0
-        max_temp: 11
-        min_temp: 1
-        temp_step: 1
-        target_temp_register: 206
-
 #### EF - Extract air fan, SF - Supply air fan
     sensors:
       - name: vtr200b_reg_fan_speed_level
